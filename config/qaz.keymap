@@ -9,8 +9,9 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEFAULT 0
-#define NUM_SYM 1
+#define NUM     1
 #define NAV     2
+#define FROW    3
 
 / {
     behaviors {
@@ -31,27 +32,34 @@
 
         default_layer {
             bindings = <
-    &kp Q      &kp W      &kp E       &kp R       &kp T  &kp Y  &kp U       &kp I       &kp O      &kp P
-    &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G  &kp H  &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI RET
-    &kp Z                 &kp X       &kp C       &kp V  &kp B  &kp N       &kp M       &kp COMMA  &kp DOT
-    &kp LSHFT  &kp LGUI   &kp LALT       &lt NAV RET    &lt NUM_SYM SPACE   &kp COLON   &kp SQT    &kp FSLH
+    &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P
+    &lt NAV A  &kp S      &kp D      &kp F      &kp G      &kp H      &kp J      &kp K      &kp L      &lt NUM SQT
+    &mt LSHFT Z           &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp ENTER
+    &kp LCTL   &kp LALT   &kp SPACE     &kp SPACE     &kp SPACE                  &kp SPACE  &kp RGUI   &mo FROW
             >;
         };
-        num_sym {
+        num {
             bindings = <
-    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5 &kp N6 &kp N7     &kp N8      &kp N9    &kp N0
-    &trans     &trans     &trans     &trans     &trans &trans &trans     &trans      &kp EQUAL &kp MINUS
-    &kp DEL               &none      &none      &none  &none  &none      &none       &none     &kp DOT
-    &bootloader &reset    &none         &trans        &trans             &kp RET     &trans    &kp FSLH
+    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6     &kp N7     &kp N8     &kp N9     &kp N0
+    &kp TAB    &trans     &trans     &trans     &kp EQUAL  &kp MINUS  &trans     &kp PG_UP  &kp PG_DN  &trans
+    &kp LSHFT             &trans     &trans     &kp LBKT   &kp BSLH   &kp RBKT   &trans     &kp DOT    &kp SLASH
+    &trans     &trans     &trans        &trans        &trans                     &trans     &trans     &trans
             >;
         };
-
-    nav {
+        nav {
             bindings = <
-    &bt BT_CLR &bt BT_NXT &bt BT_PRV &none       &none &none &none       &kp UP       &none     &kp BSPC
-    &trans     &trans     &trans     &trans      &none &none &kp LEFT    &kp DOWN     &kp RIGHT &none
-    &none                 &none      &none       &none &none &none       &none        &none     &none
-    &none      &none      &none         &trans        &trans             &kp RET      &trans    &kp FSLH
+    &kp ESC    &kp GRAVE  &kp UP     &trans     &trans     &trans     &trans     &trans     &kp DEL    &kp BSPC
+    &trans     &kp LEFT   &kp DOWN   &kp RIGHT  &kp EQUAL  &kp MINUS  &trans     &trans     &trans     &kp SEMI
+    &trans                &trans     &trans     &kp LBKT   &kp BSLH   &kp RBKT   &trans     &kp DOT    &kp SLASH
+    &trans     &trans     &trans        &trans        &trans                     &trans     &trans     &trans
+            >;
+        };
+        frow {
+            bindings = <
+    &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
+    &bt BT_CLR &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp F11    &kp F12
+    &out OUT_TOG          &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+    &bt_PRV    &bt_NXT    &trans        &trans        &trans                     &trans     &reset     &bootloader
             >;
         };
     };
